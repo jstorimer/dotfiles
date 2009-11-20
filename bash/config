@@ -1,12 +1,12 @@
 NOCOLOR='\e[0m' # disable all colors
 EBLACK='\e[1;30m' # Black - Bold
-bldred='\e[1;31m' # Red
-bldgrn='\e[1;32m' # Green
+ERED='\e[1;31m' # Red
+EGREEN='\e[1;32m' # Green
 bldylw='\e[1;33m' # Yellow
 bldblu='\e[1;34m' # Blue
-bldpur='\e[1;35m' # Purple
-bldcyn='\e[1;36m' # Cyan
+EPURP='\e[1;35m' # Purple
+ECYAN='\e[1;36m' # Cyan
 bldwht='\e[1;37m' # White
 
-export PS1="\n\u:\w\[$EBLACK\]\$(vcprompt)\[$NOCOLOR\] \n→ "
+export PS1="\n\[$EGREEN\]\u:\[$ECYAN\]\w\[$EBLACK\]\$(vcprompt)\[$NOCOLOR\] \n→ "
 export EDITOR="mate -w"
