@@ -264,5 +264,13 @@ alias scaffold='script/generate nifty_scaffold'
 alias migrate='rake db:migrate db:test:clone'
 alias rst='touch tmp/restart.txt'
 
+# heroku
+alias hrk='heroku'
+alias hp='git push heroku master'
+alias hl='heroku logs'
+alias ho='heroku open'
+alias hi='heroku info'
+alias hc='heroku console'
+
 # commands starting with % for pasting from web
 alias %=' '
