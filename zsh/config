@@ -2,7 +2,7 @@ autoload -U colors
 colors
 setopt prompt_subst
 PROMPT='
-%{$fg_bold[green]%}%n:%{$fg_bold[cyan]%}%~ %{$fg_bold[black]%}$(vcprompt)
+%{$fg_bold[green]%}%n:%{$fg_bold[cyan]%}%~ %{$fg_bold[black]%}$(git_info_for_prompt)
 → %{$reset_color%}'
 
 export EDITOR='mate -w'
