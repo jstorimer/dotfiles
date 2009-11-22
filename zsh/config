@@ -1,12 +1,13 @@
-if [[ -n $SSH_CONNECTION ]]; then
-  export PS1='%m:%3~$(git_info_for_prompt)%# '
-else
-  export PS1='%3~$(git_info_for_prompt)%# '
-fi
+autoload -U colors
+colors
+setopt prompt_subst
+PROMPT='
+%{$fg_bold[green]%}%n:%{$fg_bold[cyan]%}%~ %{$fg_bold[black]%}$(vcprompt)
+→ %{$reset_color%}'
 
 export EDITOR='mate -w'
-export PATH="~/bin:/usr/local/homebrew/bin:/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:/usr/local/git/bin:$PATH"
 export MANPATH="/usr/local/man:/usr/local/mysql/man:/usr/local/git/man:$MANPATH"
+export PATH="/Users/jesse/bin:$PATH"
 
 fpath=(~/.zsh/functions $fpath)
 
@@ -34,6 +35,21 @@ setopt APPEND_HISTORY # adds history
 setopt INC_APPEND_HISTORY SHARE_HISTORY  # adds history incrementally and share it across sessions
 setopt HIST_IGNORE_ALL_DUPS  # don't record dupes in history
 setopt HIST_REDUCE_BLANKS
+
+setopt CORRECT
+setopt CORRECTALL
+
+setopt hist_ignore_dups     # ignore duplication command history list
+setopt share_history        # share command history data
+setopt HIST_IGNORE_SPACE
+setopt APPEND_HISTORY # write history only when closing
+setopt EXTENDED_HISTORY # add more info
+
+autoload url-quote-magic
+zle -N self-insert url-quote-magic
+
+autoload compinit
+compinit
 
 zle -N newtab
 
