@@ -328,3 +328,20 @@ echo "…………………………………………………..’, ; ; ; ; ; 
 echo "……………………………………………………’-, ; ; ;,,-~’’’ \ , ,|, |"
 echo "………………………………………………………’’~-‘’_ , , ,,’,_/--‘"
 }
+
+function pathed_cd() {
+  if [ -n "$1" ]; then
+    cd "$1"
+  else
+    cd
+  fi
+
+pwd > ~/.cdpath
+}
+alias cd="pathed_cd"
+ 
+if [ -f ~/.cdpath ]; then
+  cd $(cat ~/.cdpath)
+fi
+
+
