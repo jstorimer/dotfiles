@@ -343,4 +343,5 @@ if [ -f ~/.cdpath ]; then
   cd $(cat ~/.cdpath)
 fi
 
-
+# VIM
+alias vim='mvim' 
