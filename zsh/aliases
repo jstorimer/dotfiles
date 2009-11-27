@@ -271,6 +271,8 @@ alias ho='heroku open'
 alias hi='heroku info'
 alias hc='heroku console'
 
+alias tailf='tail -f'
+
 # commands starting with % for pasting from web
 alias %=' '
 
