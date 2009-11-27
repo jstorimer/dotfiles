@@ -1,5 +1,5 @@
 " vim color file
-" Maintainer:  Brian Nelson <bcnelson@imcglobal.com>
+" Maintainer:  Brian Nelson <nelsonbc@gmail.com>
 " Last Change: $Revision: 1.1 $ $Date: 2003/12/15 17:25:08 $
 "
 " Less is More - A minimal color scheme. 
