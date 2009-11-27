@@ -7,7 +7,7 @@ PROMPT='
 
 export EDITOR='mate -w'
 export MANPATH="/usr/local/man:/usr/local/mysql/man:/usr/local/git/man:$MANPATH"
-export PATH="/Users/jesse/bin:$PATH"
+export PATH="/Users/jesse/bin:/opt/local/bin:$PATH"
 
 fpath=(~/.zsh/functions $fpath)
 
