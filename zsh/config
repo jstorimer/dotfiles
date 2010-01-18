@@ -7,7 +7,7 @@ PROMPT='
 
 export EDITOR='mate -w'
 export MANPATH="/usr/local/man:/usr/local/mysql/man:/usr/local/git/man:$MANPATH"
-export PATH="/Users/jesse/bin:/opt/local/bin:$PATH"
+export PATH="/Users/jesse/bin:/opt/local/bin:/usr/local/Cellar/git/1.6.5.4/libexec/git-core:/usr/games:$PATH"
 
 fpath=(~/.zsh/functions $fpath)
 
@@ -60,3 +60,8 @@ bindkey '^[[5C' end-of-line
 bindkey '^[[3~' delete-char
 bindkey '^[^N' newtab
 bindkey '^?' backward-delete-char 
+
+# For zsh. Add to your .zshrc
+function command_not_found_handler() {
+  ~/bin/shell_method_missing $*
+}
