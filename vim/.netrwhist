@@ -1,9 +1,0 @@
-let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =7
-let g:netrw_dirhist_1='/Users/jesse/workspace/rails/app-store'
-let g:netrw_dirhist_2='/Users/jesse/.dotfiles'
-let g:netrw_dirhist_3='/Users/jesse/workspace/rails/app-store'
-let g:netrw_dirhist_4='/Users/jesse/workspace/rails/shopify-app-etizer'
-let g:netrw_dirhist_5='/Users/jesse/workspace/lib/tickle'
-let g:netrw_dirhist_6='/Users/jesse/workspace/rails/shopify-app-etizer'
-let g:netrw_dirhist_7='/Users/jesse/workspace/rails/theme-store'
