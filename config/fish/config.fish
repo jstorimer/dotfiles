@@ -28,14 +28,6 @@ set BROWSER open
 
 bind \cr "rake"
 
-function ss -d "Run the script/server"
-	script/server
-end
-
-function sc -d "Run the Rails console"
-	script/console
-end
-
 set -x JAVA_HOME "/usr/"
 
 
