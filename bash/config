@@ -8,5 +8,5 @@ EPURP='\e[1;35m' # Purple
 ECYAN='\e[1;36m' # Cyan
 bldwht='\e[1;37m' # White
 
-export PS1="\n\[$EGREEN\]\u:\[$ECYAN\]\w\[$EBLACK\]\$(vcprompt)\[$NOCOLOR\] \n→ "
+export PS1="\n\[$EGREEN\]\u:\[$ECYAN\]\w\[$EBLACK\] \$(vcprompt)\[$NOCOLOR\] \n→ "
 export EDITOR="mate -w"
