@@ -1,5 +1,5 @@
 function fish_prompt -d "Write out the prompt"
-	printf '%s%s%s%s:' (set_color brown) (whoami) (set_color normal) 
+	printf '\n%s%s%s%s:' (set_color brown) (whoami) (set_color normal) 
 
 	# Color writeable dirs green, read-only dirs red
 	if test -w "."

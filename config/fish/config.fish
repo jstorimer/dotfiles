@@ -30,5 +30,6 @@ bind \cr "rake"
 
 set -x JAVA_HOME "/usr/"
 
-
-
+function --on-event fish_command_not_found method_missing
+	fish_method_missing $argv;
+end

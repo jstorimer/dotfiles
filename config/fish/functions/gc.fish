@@ -1,3 +1,5 @@
 function gc
-	git commit -v $argv;
+  echo 'Commit Message:';
+  read message;
+	git commit -m $message;
 end
