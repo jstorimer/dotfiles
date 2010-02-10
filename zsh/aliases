@@ -232,11 +232,6 @@ function __rm_single_file(){
     fi
 }
 
-
-# From ryanb
-# cd
-alias ..='cd ..'
-
 # ls
 alias ls="ls -F"
 alias l="ls -lAh"
@@ -244,7 +239,7 @@ alias ll="ls -l"
 alias la='ls -A'
 
 # git
-alias gl="git log --graph --pretty=format:'%Cred%h%Creset %an: %s - %Creset %C(yellow)%d%Creset %Cgreen(%cr)%Creset' --abbrev-commit --date=relative"
+alias gl="git log --pretty=format:'%Cred%h%Creset %an: %s - %Creset %C(yellow)%d%Creset %Cgreen(%cr)%Creset' --abbrev-commit --date=relative"
 alias gp='git push'
 alias gd='git diff'
 alias gca='git commit -a'
@@ -276,5 +271,20 @@ alias tailf='tail -f'
 # VIM
 alias vim='mvim' 
 
-# Git-Hub
-alias git='hub'
+alias webshare='python -c "import SimpleHTTPServer;SimpleHTTPServer.test()"'
+
+function zsh_stats() {
+  history | awk '{print $2}' | sort | uniq -c | sort -rn | head
+}
+
+function tab() {
+  osascript 2>/dev/null <<EOF
+    tell application "System Events"
+      tell process "Terminal" to keystroke "t" using command down
+    end
+    tell application "Terminal"
+      activate
+      do script with command "cd \"$PWD\"; clear; $*" in window 1
+    end tell
+EOF
+}

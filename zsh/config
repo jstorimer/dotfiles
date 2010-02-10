@@ -7,7 +7,7 @@ PROMPT='
 
 export EDITOR='mate -w'
 export MANPATH="/usr/local/man:/usr/local/mysql/man:/usr/local/git/man:$MANPATH"
-export PATH="/Users/jesse/bin:/opt/local/bin:/usr/local/Cellar/git/1.6.5.4/libexec/git-core:/usr/games:$PATH"
+export PATH="/Users/jesse/bin:/opt/local/bin:/usr/local/Cellar/git/1.6.5.4/libexec/git-core:/usr/games:/usr/local/narwhal/bin:$PATH"
 
 fpath=(~/.zsh/functions $fpath)
 
@@ -24,7 +24,7 @@ setopt NO_LIST_BEEP
 setopt LOCAL_OPTIONS # allow functions to have local options
 setopt LOCAL_TRAPS # allow functions to have local traps
 setopt HIST_VERIFY
-setopt SHARE_HISTORY # share history between sessions ???
+# setopt SHARE_HISTORY # share history between sessions ???
 setopt EXTENDED_HISTORY # add timestamps to history
 setopt PROMPT_SUBST
 setopt CORRECT
@@ -37,10 +37,10 @@ setopt HIST_IGNORE_ALL_DUPS  # don't record dupes in history
 setopt HIST_REDUCE_BLANKS
 
 setopt CORRECT
-setopt CORRECTALL
+# setopt CORRECTALL
 
 setopt hist_ignore_dups     # ignore duplication command history list
-setopt share_history        # share command history data
+# setopt share_history        # share command history data
 setopt HIST_IGNORE_SPACE
 setopt APPEND_HISTORY # write history only when closing
 setopt EXTENDED_HISTORY # add more info
@@ -65,3 +65,5 @@ bindkey '^?' backward-delete-char
 function command_not_found_handler() {
   ~/bin/shell_method_missing $*
 }
+
+export BAT_CHARGE='/Users/jesse/bin/bat_charge'
