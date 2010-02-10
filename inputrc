@@ -1,0 +1,34 @@
+# Be 8 bit clean.
+set input-meta on
+set output-meta on
+set convert-meta off
+
+# allow the use of the Home/End keys
+"\e[1~": beginning-of-line
+"\e[4~": end-of-line
+
+# allow the use of the Delete/Insert keys
+"\e[3~": delete-char
+"\e[2~": quoted-insert
+
+# mappings for "page up" and "page down" to step to the beginning/end 
+# of the history
+"\e[5~": beginning-of-history
+"\e[6~": end-of-history
+
+# alternate mappings for "page up" and "page down" to search the history
+# "\e[5~": history-search-backward
+# "\e[6~": history-search-forward
+
+# this lets you hit tab to auto-complete a file or 
+# directory name ignoring case
+set completion-ignore-case On
+
+# these allow you to use ctrl+left/right arrow keys
+# to jump the cursor over words
+"\e[5C": forward-word
+"\e[5D": backward-word
+
+
+set show-all-if-ambiguous on
+set bell-style visible
