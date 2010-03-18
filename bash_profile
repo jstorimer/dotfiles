@@ -16,3 +16,9 @@ if [[ -s /Users/jesse/.rvm/scripts/rvm ]] ; then source /Users/jesse/.rvm/script
 
 
 export NARWHAL_ENGINE=jsc
+
+export NARWHAL_ENGINE=jsc
+
+export PATH="/Users/jesse/workspace/lib/cappuccino/yes/bin:$PATH"
+
+export NARWHAL_ENGINE=jsc
