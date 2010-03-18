@@ -5,3 +5,5 @@
 *.swo
 *.orig
 dev/null
+*null
+.rvmrc
