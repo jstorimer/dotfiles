@@ -2,3 +2,15 @@
 username = Jesse Storimer <jstorimer@gmail.com>
 verbose = True
 
+[extensions]
+hgext.bookmarks =
+hggit =
+
+[diff]
+git = True
+
+[pager]
+pager = LESS='FSRX' less
+
+[extensions]
+pager =
