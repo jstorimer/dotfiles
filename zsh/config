@@ -3,7 +3,7 @@ colors
 setopt prompt_subst
 
 PROMPT='
-%{$fg_bold[green]%}%n:%{$fg_bold[cyan]%}%~ %{$fg_bold[black]%}$(vcprompt)
+%{$fg_bold[green]%}%n:%{$fg_bold[cyan]%}%~ %{$fg_bold[black]%}$(vcprompt)[$(~/.rvm/bin/rvm-prompt i v g)]
 → %{$reset_color%}'
 
 export EDITOR='mate -w'

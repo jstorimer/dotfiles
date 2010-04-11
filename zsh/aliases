@@ -4,14 +4,8 @@
 # Utility
 alias reload='source ~/.zshrc'
 alias ea='mate -w ~/.dotfiles/zsh/aliases && reload' # Edit aliases
-alias ee="mate ~/.dotfiles/zsh/env"
 
 # Quicker cd
-alias cg='cd /Library/Ruby/Gems/1.8/gems/'
-function cr() {
- cd ~/repos/$*
-}
-
 # Common -- Some are from Damian Conway
 alias a='ls -A' # -A all except literal . ..
 alias la="ls -A -l -G"
@@ -38,12 +32,9 @@ function take() {
 }
 
 alias q='exit'
-alias k9="killall -9"
+alias k9="kill -9"
 function killnamed () { 
     ps ax | grep $1 | cut -d ' ' -f 2 | xargs kill 
-}
-function zipr() {
-  zip -r $1.zip $1
 }
 
 # Finder
@@ -60,12 +51,6 @@ function pless() {
 # Processes
 alias tu='top -o cpu' # cpu
 alias tm='top -o vsize' # memory
-
-# Mercurial hg
-function new-hg() {
-    ssh hg@example.com "hg init $1"
-    hg clone ssh://hg@example.com/$1
-}
 
 # Git
 alias ungit="find . -name '.git' -exec rm -rf {} \;"
@@ -146,54 +131,10 @@ alias ts='thin start'
 
 # TDD / BDD
 
-alias aa='autotest'
-alias aaf='autotest -f' # Don't run all at start
-alias aas="./script/autospec"
-
-# Setup a tunnel
-function haproxyssh() { 
-  ssh -L7997:127.0.0.1:7997 deploy@$1.com 
-}
-
 # Syntax check Javascript
 function jsc() { 
   jsl -conf /etc/jsl/jsl.conf -process $1 
 }
-
-function aiff2mp3() { 
-  lame -h -V 0 $1.aif $1.mp3 
-}
-function wav2mp3() { 
-  lame -h -V 0 $1.wav $1.mp3 
-}
-
-
-# XCode
-# Analyze release build
-alias sx="xcodebuild clean && ~/src/checker-0.146/scan-build -k -V xcodebuild"
-# Analyze test build
-alias sxt="xcodebuild -target Test clean && ~/src/checker-0.146/scan-build -k -V xcodebuild -target Test"
-# Call with -target Foo
-function sxx() { 
-  xcodebuild $* clean && ~/src/checker-0.146/scan-build -k -V xcodebuild $* 
-}
-
-alias ox="open *.xcodeproj"
-
-# Nginx
-function nginx_stop() {
-    ps ax | grep nginx | cut -d " " -f 1 | xargs sudo kill -9
-}
-function nginx_start() {
-    sudo /opt/nginx/sbin/nginx
-}
-
-# TaskPaper
-function new-tp() {
-    touch $1.taskpaper
-    open $1.taskpaper
-}
-
 
 # From http://github.com/suztomo/dotfiles
 function rmf(){
@@ -246,7 +187,7 @@ alias grm="git status | grep deleted | awk '{print \$3}' | xargs git rm"
 alias sc='script/console'
 alias ss='script/server'
 alias sg='script/generate'
-alias a='autotest -rails'
+alias a='autotest'
 alias tlog='tail -f log/development.log'
 alias scaffold='script/generate nifty_scaffold'
 alias migrate='rake db:migrate db:test:clone'
@@ -283,4 +224,19 @@ function tab() {
 EOF
 }
 
-alias emacs='open -a Emacs.app'
+alias emacs='open -a "Aquamacs Emacs"'
+
+alias m='mutt'
+
+alias words='wc -w'
+
+function wp() {
+  open "http://en.wikipedia.org/w/index.php?search=$*" 
+}
+
+alias pomo='nocorrect pomo'
+
+alias mp='muttprofile profile.personal'
+alias mw='muttprofile profile.work'
+
+alias rcd='cd .. && cdd'

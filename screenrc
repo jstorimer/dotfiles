@@ -31,11 +31,10 @@ bind ~ activity       "%c activity -> %n%f %t"
 bind * activity       "%c activity -> %n%f %t"
 
 # for launching some of the stuff i use most
-bind E screen -t 'mail' 0 mutt
-bind P screen -t 'wp' 0 w3m http://en.wikipedia.org/w/index.php?title=Special:Search&search=&fulltext=Search
+bind E screen -t 'Mail' 0 mutt
 bind G screen -t 'google' 0 w3m http://google.com
 
-shell                 zsh
+shell -${SHELL}
 
 # Make shift-PgUp and shift-PgDn work like they do in xterm.  (Note that this
 # requires xterm to be configured to pass those keys through, and not try to
