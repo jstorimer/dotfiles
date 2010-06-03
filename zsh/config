@@ -8,7 +8,7 @@ PROMPT='
 
 export EDITOR='mate -w'
 export MANPATH="/usr/local/man:/usr/local/mysql/man:/usr/local/git/man:$MANPATH"
-export PATH="/Users/jesse/bin:/opt/local/bin:/usr/local/Cellar/git/1.6.5.4/libexec/git-core:/usr/games:/usr/local/narwhal/bin:$PATH"
+export PATH="/Users/jesse/bin:/usr/local/bin:/opt/local/bin:/usr/local/Cellar/git/1.6.5.4/libexec/git-core:/usr/games:/usr/local/narwhal/bin:$PATH"
 
 fpath=(~/.zsh/functions $fpath)
 
@@ -109,10 +109,6 @@ function precmd() {
 function preexec() {
   title "$1" "$USER@%m" "%35<...<%~"
 }
-
-# git-achievements
-export PATH=$PATH:~/workspace/lib/git-achievements
-function git(){git-achievements $@}
 
 # xmonad
 export PATH=/Users/jesse/.cabal/bin:$PATH

@@ -24,7 +24,6 @@ alias lh="ls -lh"
 alias ll='ls -lhG'  # -l long listing, human readable, no group info
 alias lt='ls -lt' # sort with recently modified first
 alias md='mkdir -p'
-alias s='cd ..'   # up one dir
 
 function take() { 
     mkdir -p "$1"
@@ -200,11 +199,9 @@ alias hl='heroku logs'
 alias ho='heroku open'
 alias hi='heroku info'
 alias hc='heroku console'
+alias hps='heroku ps'
 
 alias tailf='tail -f'
-
-# VIM
-alias vim='mvim' 
 
 alias webshare='python -c "import SimpleHTTPServer;SimpleHTTPServer.test()"'
 
@@ -224,7 +221,7 @@ function tab() {
 EOF
 }
 
-alias emacs='open -a "Aquamacs Emacs"'
+alias emacs='aquamacs'
 
 alias m='mutt'
 
