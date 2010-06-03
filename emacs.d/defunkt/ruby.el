@@ -1,5 +1,6 @@
 ; rinari
-(vendor 'rinari)
+(add-to-list 'load-path "~/.emacs.d/vendor/rinari")
+(require 'rinari)
 (setq rinari-tags-file-name "TAGS")
 (add-hook 'rinari-minor-mode-hook
           (lambda ()
@@ -10,7 +11,7 @@
 (setq auto-mode-alist (cons '("\\.erb" . nxml-mode) auto-mode-alist))
 
 ; ruby
-(vendor 'ruby-hacks)
+(require 'ruby-hacks)
 (setq auto-mode-alist (cons '("Rakefile" . ruby-mode) auto-mode-alist))
 (setq auto-mode-alist (cons '("Capfile" . ruby-mode) auto-mode-alist))
 (setq auto-mode-alist (cons '("\\.rake" . ruby-mode) auto-mode-alist))
@@ -63,6 +64,3 @@
   (save-excursion
     (beginning-of-line)
     (search-forward "#" (point-at-eol) t)))
-
-; treetop
-(vendor 'treetop)

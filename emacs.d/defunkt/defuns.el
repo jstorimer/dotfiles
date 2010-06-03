@@ -20,38 +20,6 @@ This emulates Vim's `dt` behavior, which rocks."
                  (- (point) 1)))
   (backward-char 1))
 
-(defun word-count ()
-  "Count words in buffer"
-  (interactive)
-  (shell-command-on-region (point-min) (point-max) "wc -w"))
-
-(defun defunkt-ido-find-config ()
-  (interactive)
-  (find-file
-   (concat "~/.emacs.d/defunkt/"
-           (ido-completing-read "Config file: "
-                                (directory-files "~/.emacs.d/defunkt/"
-                                                 nil
-                                                 "^[^.]")))))
-
-(defun defunkt-delete-till-end-of-buffer ()
-  "Deletes all text from mark until `end-of-buffer'."
-  (interactive)
-  (save-excursion
-    (let ((beg (point)))
-      (end-of-buffer)
-      (delete-region beg (point)))))
-
-(defun defunkt-ido-find-project ()
-  (interactive)
-  (find-file
-   (concat "~/Projects/" (ido-completing-read "Project: "
-                           (directory-files "~/Projects/" nil "^[^.]")))))
-
-(defun defunkt-goto-config ()
-  (interactive)
-  (find-file "~/.emacs.d/defunkt.el"))
-
 ;; fix kill-word
 (defun defunkt-kill-word (arg)
   "Special version of kill-word which swallows spaces separate from words"
@@ -95,39 +63,9 @@ This emulates Vim's `dt` behavior, which rocks."
     (beginning-of-line)
     (indent-according-to-mode))
 
-; for loading libraries in from the vendor directory
-(defun vendor (library)
-  (let* ((file (symbol-name library))
-         (normal (concat "~/.emacs.d/vendor/" file))
-         (suffix (concat normal ".el"))
-         (defunkt (concat "~/.emacs.d/defunkt/" file)))
-    (cond
-     ((file-directory-p normal) (add-to-list 'load-path normal) (require library))
-     ((file-directory-p suffix) (add-to-list 'load-path suffix) (require library))
-     ((file-exists-p suffix) (require library)))
-    (when (file-exists-p (concat defunkt ".el"))
-      (load defunkt))))
-
 (defun defunkt-backward-kill-line ()
   (interactive)
   (kill-line 0))
-
-(require 'thingatpt)
-(defun defunkt-change-num-at-point (fn)
-  (let* ((num (string-to-number (thing-at-point 'word)))
-         (bounds (bounds-of-thing-at-point 'word)))
-    (save-excursion
-      (goto-char (car bounds))
-      (defunkt-kill-word 1)
-      (insert (number-to-string (funcall fn num 1))))))
-
-(defun defunkt-inc-num-at-point ()
-  (interactive)
-  (defunkt-change-num-at-point '+))
-
-(defun defunkt-dec-num-at-point ()
-  (interactive)
-  (defunkt-change-num-at-point '-))
 
 (defun url-fetch-into-buffer (url)
   (interactive "sURL:")
@@ -140,29 +78,6 @@ This emulates Vim's `dt` behavior, which rocks."
     (search-forward-regexp "\n\n")
     (delete-region (point-min) (point))
     (buffer-string)))
-
-(defun gist-buffer-confirm (&optional private)
-  (interactive "P")
-  (when (yes-or-no-p "Are you sure you want to Gist this buffer? ")
-    (gist-region-or-buffer private)))
-
-  (defun defunkt-clean-slate ()
-    "Kills all buffers except *scratch*"
-    (interactive)
-    (let ((buffers (buffer-list)) (safe '("*scratch*")))
-      (while buffers
-        (when (not (member (car buffers) safe))
-          (kill-buffer (car buffers))
-          (setq buffers (cdr buffers))))))
-
-  (defun defunkt/c-electric-brace (arg)
-    "Inserts a closing curly, too."
-    (interactive "*P")
-    (c-electric-brace arg)
-    (save-excursion
-      (insert "\n")
-      (insert "}")
-      (indent-according-to-mode)))
 
 ;; from http://platypope.org/blog/2007/8/5/a-compendium-of-awesomeness
 ;; I-search with initial contents

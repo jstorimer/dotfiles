@@ -5,3 +5,4 @@
 ;; so it won't be version-controlled. The idea is to
 ;; make this file load other version-controlled files.
 (load "local")
+(load "defunkt")
