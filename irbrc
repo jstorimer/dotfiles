@@ -7,11 +7,15 @@ IRB.conf[:HISTORY_FILE] = "#{ENV['HOME']}/.irb_history"
 
 IRB.conf[:PROMPT_MODE] = :SIMPLE
 
-%w[rubygems looksee/shortcuts wirble].each do |gem|
+%w[rubygems looksee/shortcuts wirble bond interactive_editor].each do |gem|
   begin
     require gem
   rescue LoadError
   end
+end
+
+if defined?(Bond)
+  Bond.start
 end
 
 class Object
