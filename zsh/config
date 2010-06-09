@@ -8,16 +8,12 @@ PROMPT='
 
 export EDITOR='mate -w'
 export MANPATH="/usr/local/man:/usr/local/mysql/man:/usr/local/git/man:$MANPATH"
-export PATH="/Users/jesse/bin:/usr/local/bin:/opt/local/bin:/usr/local/Cellar/git/1.6.5.4/libexec/git-core:/usr/games:/usr/local/narwhal/bin:$PATH"
-
-fpath=(~/.zsh/functions $fpath)
-
-autoload -U ~/.zsh/functions/*(:t)
+export PATH="/Users/jesse/bin:/usr/local/bin:/opt/local/bin:/usr/local/Cellar/git/1.6.5.4/libexec/git-core:/usr/games:/usr/local/narwhal/bin:/usr/local/mysql/bin:$PATH"
 
 HISTFILE=~/.zsh_history
 HISTSIZE=1000
 SAVEHIST=1000
-REPORTTIME=10 # print elapsed time when more than 10 seconds
+REPORTTIME=5 # print elapsed time when more than 10 seconds
 
 setopt NO_BG_NICE # don't nice background tasks
 setopt NO_HUP
@@ -25,7 +21,6 @@ setopt NO_LIST_BEEP
 setopt LOCAL_OPTIONS # allow functions to have local options
 setopt LOCAL_TRAPS # allow functions to have local traps
 setopt HIST_VERIFY
-# setopt SHARE_HISTORY # share history between sessions ???
 setopt EXTENDED_HISTORY # add timestamps to history
 setopt PROMPT_SUBST
 setopt CORRECT
@@ -33,52 +28,20 @@ setopt COMPLETE_IN_WORD
 setopt IGNORE_EOF
 
 setopt APPEND_HISTORY # adds history
-setopt INC_APPEND_HISTORY SHARE_HISTORY  # adds history incrementally and share it across sessions
 setopt HIST_IGNORE_ALL_DUPS  # don't record dupes in history
 setopt HIST_REDUCE_BLANKS
 
 setopt CORRECT
-# setopt CORRECTALL
 
-setopt hist_ignore_dups     # ignore duplication command history list
-# setopt share_history        # share command history data
-setopt HIST_IGNORE_SPACE
-setopt APPEND_HISTORY # write history only when closing
 setopt EXTENDED_HISTORY # add more info
-
-autoload url-quote-magic
-zle -N self-insert url-quote-magic
 
 autoload compinit
 compinit
-
-zle -N newtab
-
-bindkey '^[^[[D' backward-word
-bindkey '^[^[[C' forward-word
-bindkey '^[[5D' beginning-of-line
-bindkey '^[[5C' end-of-line
-bindkey '^[[3~' delete-char
-bindkey '^[^N' newtab
-bindkey '^?' backward-delete-char
 
 # For zsh. Add to your .zshrc
 function command_not_found_handler() {
   ~/bin/shell_method_missing $*
 }
-
-# -- start rip config -- #
-RIPDIR=/Users/jesse/.rip
-RUBYLIB="$RUBYLIB:$RIPDIR/active/lib"
-PATH="$PATH:$RIPDIR/active/bin"
-export RIPDIR RUBYLIB PATH
-# -- end rip config -- #
-
-# Cappuccino specific
-export CAPP_BUILD="~/workspace/lib/cappuccino-apps"
-export NARWHAL_ENGINE=jsc
-
-export PYTHONPATH=/usr/local/lib/python2.6/site-packages
 
 # Taken from http://dotfiles.org/~_why/.zshrc
 
@@ -110,6 +73,8 @@ function preexec() {
   title "$1" "$USER@%m" "%35<...<%~"
 }
 
-# xmonad
-export PATH=/Users/jesse/.cabal/bin:$PATH
-export USERWM=`which xmonad`
+# Ruby
+export RUBY_HEAP_MIN_SLOTS=500000
+export RUBY_HEAP_SLOTS_INCREMENT=250000 
+export RUBY_HEAP_SLOTS_GROWTH_FACTOR=1 
+export RUBY_GC_MALLOC_LIMIT=50000000

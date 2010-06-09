@@ -1,11 +1,1 @@
---- 
-:benchmark: false
-gem: --no-ri --no-rdoc --remote
-:update_sources: true
-:backtrace: false
-:bulk_threshold: 1000
-:verbose: true
-:sources: 
-- http://gemcutter.org
-- http://gems.rubyforge.org
-- http://gems.github.com
+gem: --no-ri --no-rdoc

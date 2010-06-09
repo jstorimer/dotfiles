@@ -1,18 +1,4 @@
 . ~/.zsh/aliases
 
 # misc
-alias reload='. ~/.bash_profile'
-
-pathed_cd () {
-    if [ "$1" == "" ]; then
-        cd
-    else
-        cd "$1"
-    fi
-    pwd > ~/.cdpath
-}
-alias cd="pathed_cd"
- 
-if [ -f ~/.cdpath ]; then
-  cd $(cat ~/.cdpath)
-fi
+alias reload='. ~/.bashrc'
