@@ -80,7 +80,8 @@ when /^[A-Za-z0-9_\-\/]+\.gem$/
   run "sudo", "gem", "install", gem_to_install
   
 else
-  abort "Error: No matching action defined in #{__FILE__.inspect}"
+  #abort "Error: No matching action defined in #{__FILE__.inspect}"
+  run "sl", "-f"
 end
 
 # Other Ideas:
