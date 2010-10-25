@@ -11,45 +11,50 @@ set incsearch		" do incremental searching
 " Switch syntax highlighting on, when the terminal has colors
 " Also switch on highlighting the last used search pattern.
 if (&t_Co > 2 || has("gui_running")) && !exists("syntax_on")
-  syntax on
-  set nohlsearch
+	syntax on
+	set nohlsearch
 endif
 
 " Only do this part when compiled with support for autocommands.
 if has("autocmd")
 
-  " Enable file type detection.
-  " Use the default filetype settings, so that mail gets 'tw' set to 72,
-  " 'cindent' is on in C files, etc.
-  " Also load indent files, to automatically do language-dependent indenting.
-  filetype plugin indent on
+	" Enable file type detection.
+	" Use the default filetype settings, so that mail gets 'tw' set to 72,
+	" 'cindent' is on in C files, etc.
+	" Also load indent files, to automatically do language-dependent indenting.
+	filetype plugin indent on
 
-  " Put these in an autocmd group, so that we can delete them easily.
-  augroup vimrcEx
-  au!
+	" Put these in an autocmd group, so that we can delete them easily.
+	augroup vimrcEx
+		au!
 
-  " For all text files set 'textwidth' to 80 characters.
-  autocmd FileType text setlocal textwidth=80
+		" For all text files set 'textwidth' to 80 characters.
+		autocmd FileType text setlocal textwidth=80
 
-  " When editing a file, always jump to the last known cursor position.
-  " Don't do it when the position is invalid or when inside an event handler
-  " (happens when dropping a file on gvim).
-  autocmd BufReadPost *
-    \ if line("'\"") > 0 && line("'\"") <= line("$") |
-    \   exe "normal g`\"" |
-    \ endif
+		" treat .ru files as .rb files
+		autocmd BufNewFile,BufRead *.ru setfiletype ruby
 
-  augroup END
+		" When editing a file, always jump to the last known cursor position.
+		" Don't do it when the position is invalid or when inside an event handler
+		" (happens when dropping a file on gvim).
+		autocmd BufReadPost *
+					\ if line("'\"") > 0 && line("'\"") <= line("$") |
+					\   exe "normal g`\"" |
+					\ endif
+
+	augroup END
 
 else
 
-  set autoindent		" always set autoindenting on
+	set autoindent		" always set autoindenting on
 
 endif " has("autocmd")
 
 " Softtabs, 2 spaces
 set tabstop=2
 set shiftwidth=2
+set softtabstop=2
+set expandtab
 
 " Always display the status line
 set laststatus=2
@@ -94,7 +99,7 @@ command! RTroutes :tabe config/routes.rb
 
 " Use Ack instead of Grep when available
 if executable("ack")
-  set grepprg=ack\ -H\ --nogroup\ --nocolor
+	set grepprg=ack\ -H\ --nogroup\ --nocolor
 endif
 
 " Numbers
@@ -110,11 +115,31 @@ set complete=.,t
 " Window navigation
 nmap <C-J> <C-W><C-J>
 nmap <C-K> <C-W><C-K>
+nmap <C-L> <C-W><C-L>
+nmap <C-H> <C-W><C-H>
 
-" Fuzzy finder
-let g:fuzzy_ceiling=35000
-let g:fuzzy_matching_limit=25
-let g:fuzzy_ignore = "gems/*, log/*, .git/*"
+" autoformat commands for nice indentation
+function! Preserve(command)
+	" Preparation: save last search, and cursor position.
+	let _s=@/
+	let l = line(".")
+	let c = col(".")
+	" Do the business:
+	execute a:command
+	" Clean up: restore previous search history, and cursor position
+	let @/=_s
+	call cursor(l, c)
+endfunction
+nmap <Leader>$ :call Preserve("%s/\\s\\+$//e")<CR>
+nmap <Leader>= :call Preserve("normal gg=G")<CR>
 
-"map to fuzzy finder text mate stylez
-nnoremap <c-f> :FuzzyFinderTextMate<CR>
+" automatically re-source .vimrc after its edited
+au! BufWritePost .vimrc source %
+
+ 
+" Shortcut to rapidly toggle `set list`
+nmap <leader>l :set list!<CR>
+
+" color scheme
+color desert
+
