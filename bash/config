@@ -1,2 +1,6 @@
-export PS1="\n\[$EGREEN\]\u:\[$ECYAN\]\w\[$EBLACK\] \$(vcprompt)\[$NOCOLOR\] \n→ "
-export EDITOR="mate -w"
+export PS1='[\u@\h:\w] $(vcprompt)[$(rvm-prompt i v g)]\n\$ '
+export EDITOR="mvim"
+
+export RUBYOPT='-Itest'
+
+set completion-ignore-case on

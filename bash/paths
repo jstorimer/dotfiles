@@ -1,2 +1,2 @@
-export PATH="~/bin:/usr/local/homebrew/bin:/usr/local/bin:/usr/local/sbin:/usr/local/mysql/bin:/usr/local/git/bin:/opt/local/bin:$PATH"
+export PATH="~/bin:/usr/local/bin:/usr/local/sbin:/usr/local/Cellar/mysql/5.1.51/bin:/usr/local/mysql/bin:/usr/local/git/bin:/opt/local/bin:$PATH"
 export MANPATH="/usr/local/man:/usr/local/mysql/man:/usr/local/git/man:$MANPATH"
