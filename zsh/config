@@ -6,9 +6,9 @@ PROMPT='
 %{$fg_bold[green]%}%n:%{$fg_bold[cyan]%}%~ %{$fg_bold[black]%}$(vcprompt)[$(~/.rvm/bin/rvm-prompt i v g)]
 → %{$reset_color%}'
 
-export EDITOR='mate -w'
+export EDITOR='mvim'
 export MANPATH="/usr/local/man:/usr/local/mysql/man:/usr/local/git/man:$MANPATH"
-export PATH="/Users/jesse/bin:/usr/local/bin:/opt/local/bin:/usr/local/Cellar/git/1.6.5.4/libexec/git-core:/usr/games:/usr/local/narwhal/bin:/usr/local/mysql/bin:$PATH"
+export PATH="/opt/X11/bin:/opt/X11/include:/Users/jesse/bin:/usr/local/bin:/opt/local/bin:/usr/local/Cellar/git/1.6.5.4/libexec/git-core:/usr/games:/usr/local/narwhal/bin:/usr/local/mysql/bin:$PATH"
 
 HISTFILE=~/.zsh_history
 HISTSIZE=1000
@@ -78,3 +78,16 @@ export RUBY_HEAP_MIN_SLOTS=500000
 export RUBY_HEAP_SLOTS_INCREMENT=250000 
 export RUBY_HEAP_SLOTS_GROWTH_FACTOR=1 
 export RUBY_GC_MALLOC_LIMIT=50000000
+
+export RUBYOPT="-rpp"
+export RUBYLIB="$RUBYLIB:./lib/:./test/"
+
+# rip
+export RUBYLIB="$RUBYLIB:$HOME/workspace/rip/lib"
+export PATH="$PATH:$HOME/workspace/rip/bin"
+eval `rip-config`
+
+# Go
+export GOROOT=$HOME/go
+export GOOS=darwin
+export GOARCH=amd64

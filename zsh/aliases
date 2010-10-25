@@ -1,6 +1,6 @@
 # Utility
-alias reload='source ~/.zshrc'
-alias ea='mate -w ~/.dotfiles/zsh/aliases && reload' # Edit aliases
+alias reload='source ~/.bashrc; rvm reload > /dev/null'
+alias ea='vim ~/.dotfiles/zsh/aliases && reload' # Edit aliases
 
 # Quicker cd
 # Common -- Some are from Damian Conway
@@ -9,6 +9,7 @@ alias cdd='cd -'  # goto last dir cd'ed from
 alias cls='clear; ls'
 alias h='history'
 alias ll='ls -lhG'  # -l long listing, human readable, no group info
+alias ls='ll'
 
 function take() { 
     mkdir -p "$1"
@@ -31,8 +32,8 @@ alias gb='git branch'
 alias g='git status'
 alias eg='mate .git/config'
 alias gl="git log --pretty=format:'%Cred%h%Creset %an: %s - %Creset %C(yellow)%d%Creset %Cgreen(%cr)%Creset' --abbrev-commit --date=relative"
-alias gs='git status'
-alias gss='git status -s'
+alias gs='git status -sb'
+alias gss='git status'
 
 # Ruby
 alias r="rake"
@@ -43,6 +44,13 @@ alias sg='./script/generate'
 alias sp='./script/plugin'
 alias ss='./script/server'
 alias a='autotest'
+
+alias bi='bundle install'
+alias bu='bundle update'
+
+function ti() {
+  rake test:integration TEST="$1"
+}
 
 # heroku
 alias hrk='heroku'
@@ -61,6 +69,8 @@ function zsh_stats() {
   history | awk '{print $2}' | sort | uniq -c | sort -rn | head
 }
 
+alias h='cat ~/.zsh_history'
+
 function tab() {
   osascript 2>/dev/null <<EOF
     tell application "System Events"
@@ -74,10 +84,14 @@ EOF
 }
 
 alias m='mutt'
-alias mp='muttprofile profile.personal'
-alias mw='muttprofile profile.work'
+alias mp='muttprofile profile.personal; mutt'
+alias mw='muttprofile profile.work; mutt'
 
 alias rcd='cd .. && cdd'
 
 # todo.txt
-alias t='todo.sh -d ~/.todo.cfg'
+alias to='todo.sh -d ~/.todo.cfg'
+
+alias e='$EDITOR'
+
+
