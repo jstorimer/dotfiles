@@ -3,11 +3,15 @@
 *~
 *.swp
 *.swo
+*.swn
 *.orig
 dev/null
 *null
-.rvmrc
 *#*
 .pomo
 .kick
 .uniconf
+tags
+*.rbc
+.rbenv-version
+.sass-cache
