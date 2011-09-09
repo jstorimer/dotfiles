@@ -1,6 +1,8 @@
 export PS1='[\w] $(vcprompt)[$(rbenv version-name)]\n\$ '
 export EDITOR="vim"
 
+# export PATH=~/bin:$PATH
+export MANPATH=/usr/share/man:$MANPATH
 export RUBYOPT='-Itest'
 
 set completion-ignore-case on
