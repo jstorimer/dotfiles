@@ -1,1 +1,17 @@
+--- 
+:benchmark: false
 gem: --no-ri --no-rdoc
+:bulk_threshold: 1000
+:verbose: true
+:sources: 
+- http://rubygems.org/
+- http://gems.github.com
+:update_sources: true
+:backtrace: false
+test_options: 
+  test_on_install: true
+  upload_results: true
+  auto_test_on_install: true
+  force_uninstall_on_failure: false
+  install_development_dependencies: true
+  force_install: false
