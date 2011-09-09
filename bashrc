@@ -3,9 +3,6 @@ source ~/.zsh/aliases
 source ~/.bash/completions
 source ~/.bash/config
 
-# rvm-install added line:
-if [[ -s /Users/jesse/.rvm/scripts/rvm ]] ; then source /Users/jesse/.rvm/scripts/rvm ; fi
-
 if which fortune &> /dev/null
 then echo; fortune -a
 fi
@@ -20,3 +17,6 @@ fi
 
 if [[ -s $HOME/.screeninator/scripts/screeninator ]] ; then source $HOME/.screeninator/scripts/screeninator ; fi
 if [[ -s /usr/local/Library/Contributions/brew_bash_completion.sh ]] ; then source /usr/local/Library/Contributions/brew_bash_completion.sh ; fi
+export PATH="$HOME/.rbenv/bin:$HOME/.rbenv/shims:$PATH"
+source ~/.rbenv/completions/rbenv.bash
+
