@@ -6,3 +6,7 @@ export MANPATH=/usr/share/man:$MANPATH
 export RUBYOPT='-Itest'
 
 set completion-ignore-case on
+
+export LESSOPEN="| /usr/local/bin/src-hilite-lesspipe.sh %s"
+export LESS=' -R'
+
