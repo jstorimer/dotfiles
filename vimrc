@@ -8,6 +8,9 @@ set history=50		" keep 50 lines of command line history
 set ruler		" show the cursor position all the time
 set incsearch		" do incremental searching
 
+call pathogen#helptags()
+call pathogen#runtime_append_all_bundles()
+ 
 " Switch syntax highlighting on, when the terminal has colors
 " Also switch on highlighting the last used search pattern.
 if (&t_Co > 2 || has("gui_running")) && !exists("syntax_on")
@@ -103,7 +106,7 @@ if executable("ack")
 endif
 
 " Numbers
-set number
+set relativenumber
 
 " Snippets are activated by Shift+Tab
 let g:snippetsEmu_key = "<S-Tab>"
@@ -136,10 +139,9 @@ nmap <Leader>= :call Preserve("normal gg=G")<CR>
 " automatically re-source .vimrc after its edited
 au! BufWritePost .vimrc source %
 
- 
+
 " Shortcut to rapidly toggle `set list`
 nmap <leader>l :set list!<CR>
 
-" color scheme
-color desert
+colorscheme default
 
