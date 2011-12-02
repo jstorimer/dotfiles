@@ -41,6 +41,7 @@ alias sg='./script/generate'
 alias sp='./script/plugin'
 alias ss='./script/server'
 alias a='autotest'
+alias r='script/rails'
 
 alias bi='bundle install'
 alias bu='bundle update'
