@@ -20,4 +20,7 @@ alias gs='git status'
 alias ga='git add'
 alias gap='git add --patch'
 alias gc='git commit -v'
+alias gb='git branch'
+alias gco='git checkout'
+alias grh='git reset --hard'
 
